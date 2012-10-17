@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/viewSwitcher"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="vertical" 
+        android:contentDescription="@string/Null">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:cropToPadding="false"
+            android:gravity="center"
+            android:onClick="SkipWelcome"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon512" 
+            android:contentDescription="@string/Null">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.8"
+            android:gravity="center_horizontal"
+            android:text="@string/iperf_text"
+            android:textColor="@color/WelcomeTextColor"
+            android:textSize="22dip" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/aboutInfo"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/info"
+            android:textColor="@color/WelcomeTextColor"
+            android:textSize="25dip"
+            android:textStyle="bold|italic"
+            android:onClick="ShowCopy"
+            >
+        </TextView>
+    </LinearLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="top|left" >
+
+        <ToggleButton
+            android:id="@+id/toggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ToggleButton"
+            android:textOff="Start"
+            android:textOn="Abort" 
+            android:onClick="ToggleButtonClick" >
+        </ToggleButton>
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/toggleButton"
+            android:text="@string/Save" 
+            android:onClick="SaveButtonClick" />
+
+        <TextView
+            android:id="@+id/ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/toggleButton"
+            android:layout_alignTop="@+id/toggleButton"
+            android:layout_marginLeft="3dip"
+            android:layout_toRightOf="@+id/saveButton" >
+        </TextView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ip"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/InputCommands"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:background="@android:drawable/editbox_background"
+                android:hint="@string/InputHint"
+                android:maxLength="150" />
+
+            <Button
+                android:id="@+id/helpButton"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignBottom="@+id/InputCommands"
+                android:layout_alignTop="@+id/InputCommands"
+                android:layout_marginTop="6dip"
+                android:layout_toRightOf="@+id/InputCommands"
+                android:text="@string/help_button_title"
+                android:textStyle="bold" 
+                android:onClick="GoToHelp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/Scroller"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/linearLayout3" >
+
+            <TextView
+                android:id="@+id/OutputText"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/linearLayout3"
+                android:keepScreenOn="true"
+                android:scrollbars="vertical"
+                android:text="@string/Null" />
+        </ScrollView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/HelpLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="vertical" >
+
+        <TableLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1" >
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="1dip"
+                    android:text="@string/Help"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_height="wrap_content"
+                    android:text="@string/Return" 
+                    android:onClick="ReturnFromHelp" />
+            </TableRow>
+        </TableLayout>
+
+        <ScrollView
+            android:id="@+id/HelpScroller"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <TableLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:stretchColumns="1" >
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMT" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL01" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL02" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL03" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL04" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL05" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL06" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL07" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL08" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL09" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL10" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL11" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL12" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL13" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL14" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL15" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL16" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL17" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL18" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL19" />
+                </TableRow>
+
+                <View
+                    android:layout_height="5dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL20" />
+                </TableRow>
+
+                <View
+                    android:layout_height="5dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL21" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL22" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL23" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL24" />
+                </TableRow>
+
+                <View
+                    android:layout_height="5dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL25" />
+                </TableRow>
+
+                <View
+                    android:layout_height="5dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL26" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL27" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL28" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL29" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL30" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL31" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL32" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL33" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL34" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL35" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL36" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL37" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL38" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL39" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL40" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL41" />
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL42" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL43" />
+                </TableRow>
+
+                <View
+                    android:layout_height="5dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL44" />
+                </TableRow>
+
+                <View
+                    android:layout_height="5dip"
+                    android:background="#FF909090" />
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="1dip"
+                        android:text="@string/HelpFMTL45" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_column="1"
+                        android:padding="3dip"
+                        android:text="@string/HelpFMTL46" />
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</ViewFlipper>

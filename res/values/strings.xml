@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <string name="iperf_text">iPerf for Android</string>
+    <color name="WelcomeTextColor">#fffafa</color>
+    <string name="i"> i</string>
+    <string name="copyright">Developed by Shir Degani &amp; Yuval Degani © 2011</string>
+    <string name="help_button_title">&quot;?&quot;</string>
+    <string name="ToggleButton">Toggle Button</string>
+    <string name="Save">Save</string>
+    <string name="Null"></string>
+    <string name="Return">Return</string>
+    <string name="Help">Help:</string>
+    <string name="HelpFMT">-f, --format    [kmKM]</string>
+    <string name="HelpFMTL01">format to report: Kbits, Mbits, KBytes, MBytes</string>
+    <string name="HelpFMTL02">-i, --interval  #</string>
+    <string name="HelpFMTL03">seconds between periodic bandwidth reports</string>
+    <string name="HelpFMTL04">-l, --len       #[KM]</string>
+    <string name="HelpFMTL05">length of buffer to read or write (default 8 KB)</string>
+    <string name="HelpFMTL06">-m, --print_mss</string>
+    <string name="HelpFMTL07">print TCP maximum segment size (MTU - TCP/IP header)</string>
+    <string name="HelpFMTL08">-p, --port      #</string>
+    <string name="HelpFMTL09">server port to listen on/connect to</string>
+    <string name="HelpFMTL10">-u, --udp-u, --udp</string>
+    <string name="HelpFMTL11">use UDP rather than TCP</string>
+    <string name="HelpFMTL12">-w, --window    #[KM]</string>
+    <string name="HelpFMTL13">TCP window size (socket buffer size)</string>
+    <string name="HelpFMTL14">  -B, --bind      [host]</string>
+    <string name="HelpFMTL15">bind to [host], an interface or multicast address</string>
+    <string name="HelpFMTL16">  -M, --mss       #</string>
+    <string name="HelpFMTL17">set TCP maximum segment size (MTU - 40 bytes)</string>
+    <string name="HelpFMTL18">-N, --nodelay</string>
+    <string name="HelpFMTL19">set TCP no delay, disabling Nagle\'s Algorithm</string>
+    <string name="HelpFMTL20">Server specific:</string>
+    <string name="HelpFMTL21">-s, --server </string>
+    <string name="HelpFMTL22">run in server mode</string>
+    <string name="HelpFMTL23">-U, --single_udp </string>
+    <string name="HelpFMTL24">run in single threaded UDP mode</string>
+    <string name="HelpFMTL25">Client specific:</string>
+    <string name="HelpFMTL26">-b, --bandwidth #[KM]</string>
+    <string name="HelpFMTL27">(default 1 Mbit/sec, implies -u)</string>
+    <string name="HelpFMTL28">-c, --client    [host]</string>
+    <string name="HelpFMTL29">run in client mode, connecting to [host]</string>
+    <string name="HelpFMTL30">-d, --dualtest</string>
+    <string name="HelpFMTL31">Do a bidirectional test simultaneously</string>
+    <string name="HelpFMTL32">-n, --num       #[KM]</string>
+    <string name="HelpFMTL33">number of bytes to transmit (instead of -t)</string>
+    <string name="HelpFMTL34">-r, --tradeoff</string>
+    <string name="HelpFMTL35">Do a bidirectional test individually</string>
+    <string name="HelpFMTL36">-t, --time #</string>
+    <string name="HelpFMTL37">time in seconds to transmit for (default 10 secs)</string>
+    <string name="HelpFMTL38">-L, --listenport #</string>
+    <string name="HelpFMTL39">port to receive bidirectional tests back on</string>
+    <string name="HelpFMTL40">-P, --parallel  #</string>
+    <string name="HelpFMTL41">number of parallel client threads to run</string>
+    <string name="HelpFMTL42">-T, --ttl #</string>
+    <string name="HelpFMTL43">time-to-live, for multicast (default 1)</string>
+    <string name="HelpFMTL44">Miscellaneous:</string>
+    <string name="HelpFMTL45">-v, --version</string>
+    <string name="HelpFMTL46">print version information and quit</string>
+    <string name="info">Build by Kun-Yi</string>
+    <string name="InputHint">Please enter an iPerf command</string>
+</resources>
